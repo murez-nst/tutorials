@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+</head>
+<body>
+<p id='canvas'></p>
+<script>
+let trove = {
+  start: 1,
+  limit: 7,
+  [Symbol.iterator]() {
+    this.current = this.start;
+	return this;
+  },
+  next() {
+    if(this.limit >= this.current)
+	  return { done: false, value: this.current++ }
+	else
+	  return { done: true }
+  }
+}
+let result = '';
+for(e of trove)
+  result += e + ' '
+canvas.innerHTML = result
+</script>
+</body>
+</html>
