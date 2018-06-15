@@ -1,0 +1,3 @@
+grant codeBase "file:/D:/Murez/Home/Project/Java/ChitChat/out/production/ChitChat" {
+    permission java.security.AllPermission;
+};
