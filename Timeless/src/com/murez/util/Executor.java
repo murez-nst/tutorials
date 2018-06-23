@@ -11,8 +11,8 @@ public abstract class Executor<T> implements Runnable {
     protected Executor() {
         R = () -> {
             synchronized(this) {
-                resist = false;
                 synchronized(LOCK) { LOCK.notify(); }
+                resist = false;
             }
         };
         new Thread(this).start();
@@ -52,7 +52,7 @@ public abstract class Executor<T> implements Runnable {
 
     protected abstract T onActive();
 
-    protected abstract void onFinish(T output);
+    protected abstract void onFinish(T response);
 
     protected abstract void onClose();
 
