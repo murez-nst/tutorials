@@ -1,0 +1,23 @@
+- Login
+mysql -u root -p
+
+- Create database Murez
+CREATE DATABASE Murez
+
+- Create table of User
+CREATE TABLE `User`(
+`Email` VARCHAR(128) PRIMARY KEY NOT NULL,
+`Password` VARCHAR(256) NOT NULL,
+`Name` VARCHAR(256) NOT NULL,
+`Gender` ENUM('1', '0') NOT NULL,
+`Birthday` DATE NOT NULL,
+`Status` TEXT)
+
+- Insert one record for testing
+INSERT INTO `User` VALUE("murez.nasution@gmail.com",SHA1("myPass987"),"Murez Nasution","1","1989-09-29",NULL)
+
+- Create a new database user as Timeless for login
+CREATE User 'Timeless'@'localhost' IDENTIFIED BY 'myPass123'
+
+- Grant access to user of Timeless
+GRANT ALL ON Murez.* TO 'Tester'@'localhost'
